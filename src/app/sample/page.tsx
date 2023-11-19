@@ -4,6 +4,7 @@ import {getCurrentWeather} from "@/utils/server/getCurrentWeather";
 import {getTime} from "@/utils/server/getTime";
 import Link from "next/link";
 import styles from './Sample.module.scss';
+import {Card, Image} from "antd";
 
 export default async function Test() {
     const res = await getCurrentWeather('seoul');
@@ -12,6 +13,7 @@ export default async function Test() {
 
     return (
         <div className={styles.main}>
+            <h1>Sample</h1>
             <div className={styles.container}>
                 <h5>1. Sample Client Component</h5>
                 <SampleClient/>
@@ -21,11 +23,12 @@ export default async function Test() {
                 <h5>2. External API call test</h5>
 
                 A. 날씨 api 호출
-                <h4>서울의 날씨</h4>
-                <p>time-zone: {res.location.tz_id}</p>
-                <span>
-                서울의 날씨: {res.current.condition.text}
-            </span>
+                <Card title={"서울의 날씨"}>
+                    <p>time-zone: {res.location.tz_id}</p>
+                    <p>서울의 온도: {res.current.temp_c}도</p>
+                    <p>서울의 날씨: {res.current.condition.text}</p>
+                </Card>
+
                 <br/>
                 <br/>
 
