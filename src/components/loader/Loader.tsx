@@ -2,7 +2,10 @@
 import styles from './Loader.module.scss';
 import {RotatingLines} from "react-loader-spinner";
 
-export default function Loader({basic}) {
+interface Props {
+    basic: boolean;
+}
+export default function Loader({basic}: Props) {
 
     if (basic) {
         return (<div className={styles.basicWrapper}>
