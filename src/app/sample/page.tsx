@@ -4,13 +4,15 @@ import {getCurrentWeather} from "@/utils/server/getCurrentWeather";
 import {getTime} from "@/utils/server/getTime";
 import Link from "next/link";
 import styles from './Sample.module.scss';
-import {Card, Image} from "antd";
+import {Card} from "antd";
+import {getUserTest} from "@/api/userApi";
 
 export default async function Test() {
     const res = await getCurrentWeather('seoul');
     console.log(res.current.condition.text);
     const time = await getTime(res.location.tz_id);
-
+    const apiTest: any = await getUserTest();
+    console.log(apiTest, 'resDataresData');
     return (
         <div className={styles.main}>
             <h1>Sample</h1>
@@ -48,6 +50,12 @@ export default async function Test() {
                     Next 공식홈페이지 (Data Fetching, Caching, and Revalidating)
                 </Link>
             </div>
+
+            <div  className={styles.container}>
+                <h5>3. OUR API call test</h5>
+                backend api call test result : {apiTest.message}
+            </div>
+
         </div>
     )
 }
