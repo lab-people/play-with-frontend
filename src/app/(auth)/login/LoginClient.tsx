@@ -12,7 +12,7 @@ export default function LoginClient() {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [token, setToken] = useState('');
-    const loginUser = async (e) => {
+    const loginUser = async (e: any) => {
         e.preventDefault();
         setIsLoading(true);
         const loginUser = {
@@ -55,7 +55,6 @@ export default function LoginClient() {
 
                     <Button
                         onClick={loginUser}
-                        width="100%"
                     >
                         로그인
                     </Button>

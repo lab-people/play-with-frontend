@@ -10,22 +10,22 @@ import dayjs from "dayjs";
 import {saveUser} from "../../../api/userApi";
 
 export default function SignupClient() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [birth, setBirth] = useState('');
-    const [gender, setGender] = useState('');
-    const [nickName, setNickName] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setIsConfirmPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [birth, setBirth] = useState<string>('');
+    const [gender, setGender] = useState<string>('');
+    const [nickName, setNickName] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setIsConfirmPassword] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const router = useRouter();
 
-    const registerUser = async (e) => {
+    const registerUser = async (e: any) => {
         e.preventDefault();
         const user = {
             name: name,
-            birth: dayjs(birth).format('YYYYMMDD'),
+            birth: birth,
             email: email,
             gender: gender,
             nickName: nickName,
@@ -73,7 +73,10 @@ export default function SignupClient() {
                             onChange={(e) => setNickName(e.target.value)}
                         />
                         생년월일
-                        <DatePicker onChange={(e) => setBirth(e)}/>
+                        <DatePicker onChange={(e) =>{
+                            const birth = dayjs(e).format('YYYYMMDD');
+                            setBirth(birth);
+                        }}/>
                         성별
                         <Select onChange={(e) => setGender(e)} options={genderOpts}>
 
@@ -94,7 +97,6 @@ export default function SignupClient() {
                         />
                         <Button
                             onClick={registerUser}
-                            width="100%"
                         >
                             회원가입
                         </Button>
