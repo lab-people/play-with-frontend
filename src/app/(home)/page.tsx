@@ -11,6 +11,8 @@ export default async function Home() {
         <Link href="/signup">회원가입 페이지 이동</Link>
         <br/>
         <Link href="/login">로그인 페이지 이동</Link>
+        <br/>
+        <Link href="/home">메인 페이지 이동</Link>
     </>
   )
 }
