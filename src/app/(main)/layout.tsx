@@ -10,11 +10,11 @@ const Layout = (props: ILayout) => {
   const { children } = props;
 
   return (
-    <html>
-      <title>Main</title>
-      <meta name="title" key="title" content="Main" />
+    <section>
+      {/* <title>Main</title>
+      <meta name="title" key="title" content="Main" /> */}
       {children}
-    </html>
+    </section>
   );
 };
 
