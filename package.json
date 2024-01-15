@@ -16,7 +16,9 @@
     "react-dom": "^18",
     "react-loader-spinner": "^5.4.5",
     "recoil": "^0.7.7",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "styled-components": "^6.1.8",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@types/node": "^20",
