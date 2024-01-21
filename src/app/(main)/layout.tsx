@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import BaseHeader from "@/components/baseLayout/BaseHeader";
+import { ReactNode } from "react";
 
 // Only the root layout can contain <html> and <body> tags.
-
 interface ILayout {
   children: ReactNode;
 }
@@ -10,11 +10,9 @@ const Layout = (props: ILayout) => {
   const { children } = props;
 
   return (
-    <section>
-      {/* <title>Main</title>
-      <meta name="title" key="title" content="Main" /> */}
+    <div>
       {children}
-    </section>
+    </div>
   );
 };
 
