@@ -191,3 +191,15 @@ table {
   21px
   */
 }
+
+.other-month {
+  color: #bbb;
+}
+
+.current-day {
+  color: green;
+}
+
+.selected-day {
+  color: blue;
+}
